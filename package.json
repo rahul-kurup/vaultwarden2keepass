@@ -23,9 +23,9 @@
     "vitest": "^2.0.4"
   },
   "dependencies": {
-    "@bitwarden/cli": "^2024.11.1",
+    "@bitwarden/cli": "^2025.11.0",
     "@phc/format": "^1.0.0",
-    "argon2": "^0.41.1",
+    "argon2": "^0.44.0",
     "kdbxweb": "^2.1.1"
   }
 }

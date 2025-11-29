@@ -1,7 +1,7 @@
-import type { Attachment, Collection, Folder, Item, Organization } from './bitwardenCliTypes';
 import { execSync } from 'child_process';
 import { mkdirSync, readFileSync, rmSync } from 'fs';
 import { join, resolve } from 'path';
+import type { Attachment, Collection, Folder, Item, Organization } from './bitwardenCliTypes';
 
 type Status = 'unauthenticated' | 'locked';
 
@@ -108,7 +108,7 @@ export class BitwardenExtractor {
     );
 
     console.log(
-      `💻 Fetching ${downloadableAttachments.length} attachments smaller then ${this.maxAttachmentSize} bytes (skipping ${allAttachments.length - downloadableAttachments.length} larger attachments) to temporary directory ${resolve(this.attachmentTempFolder)}`,
+      `💻 Fetching ${downloadableAttachments.length} attachments smaller than ${this.maxAttachmentSize} bytes (skipping ${allAttachments.length - downloadableAttachments.length} larger attachments) to temporary directory ${resolve(this.attachmentTempFolder)}`,
     );
     const attachments: Record<string, ArrayBuffer> = {};
     for (const { attachment, itemId } of downloadableAttachments) {
