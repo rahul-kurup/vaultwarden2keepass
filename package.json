@@ -10,22 +10,23 @@
     "test:unit": "vitest"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.3",
-    "@types/node": "^22.10.1",
+    "@eslint/compat": "^2.1.1",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.4.1",
     "@types/phc__format": "^1.0.1",
-    "eslint": "^9.7.0",
-    "eslint-config-prettier": "^9.1.0",
-    "globals": "^15.0.0",
-    "prettier": "^3.3.2",
-    "tsx": "^4.19.2",
-    "typescript": "^5.0.0",
-    "typescript-eslint": "^8.0.0",
-    "vitest": "^2.0.4"
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.0",
+    "typescript-eslint": "^8.69.0",
+    "vitest": "^5.0.0"
   },
   "dependencies": {
-    "@bitwarden/cli": "^2025.11.0",
+    "@bitwarden/cli": "^2026.8.0",
     "@phc/format": "^1.0.0",
-    "argon2": "^0.44.0",
+    "argon2": "^0.41.1",
     "kdbxweb": "^2.1.1"
   }
 }

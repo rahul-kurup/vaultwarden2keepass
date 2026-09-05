@@ -15,7 +15,7 @@ const DEFAULTS = {
 
 function ensureParameter(parameter: string, explanation: string) {
   const value = process.env[parameter];
-  if (!value) throw `Missing environment variable '${parameter}': ${explanation}`;
+  if (!value) throw new Error(`Missing environment variable '${parameter}': ${explanation}`);
   return value;
 }
 
@@ -52,9 +52,15 @@ export async function executeBackup() {
 
   const attachmentTempFolder =
     process.env['ATTACHMENT_TEMP_FOLDER'] || DEFAULTS.ATTACHMENT_TEMP_FOLDER;
-  const maxAttachmentBytes = process.env['MAX_ATTACHMENT_BYTES']
-    ? Number.parseInt(process.env['MAX_ATTACHMENT_BYTES'])
-    : DEFAULTS.MAX_ATTACHMENT_BYTES;
+  let maxAttachmentBytes: number = DEFAULTS.MAX_ATTACHMENT_BYTES;
+  const rawMaxAttachmentBytes = process.env['MAX_ATTACHMENT_BYTES'];
+  if (rawMaxAttachmentBytes !== undefined) {
+    const parsed = Number.parseInt(rawMaxAttachmentBytes);
+    if (Number.isNaN(parsed)) {
+      throw new Error(`Invalid MAX_ATTACHMENT_BYTES '${rawMaxAttachmentBytes}': not a number`);
+    }
+    maxAttachmentBytes = parsed;
+  }
 
   const backupPath = process.env['KEEPASS_BACKUP_PATH'] || DEFAULTS.KEEPASS_BACKUP_PATH;
   const backupFileName =

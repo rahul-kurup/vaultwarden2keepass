@@ -24,9 +24,7 @@ export type ItemData = Item | Card | Identity | Login | SecureNote;
 export type ItemType = Item | CardItem | IdentityItem | LoginItem | SecureNoteItem;
 
 export type FieldMapping =
-  | SimpleFieldMapping<unknown, unknown>
-  | ArrayFieldMapping<unknown[], unknown>
-  | undefined;
+  SimpleFieldMapping<unknown, unknown> | ArrayFieldMapping<unknown[], unknown> | undefined;
 
 export type MappingRecord<T extends ItemData, I extends ItemType = Item> = {
   [K in keyof T]: T[K] extends Array<unknown>
