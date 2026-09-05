@@ -118,7 +118,7 @@ export class KeePassWriter {
       if (id != undefined) partial[id] = name;
       return partial;
     }, {});
-    const noFolderName = bitwarden.folders.filter((f) => !f.id)![0].name;
+    const noFolderName = bitwarden.folders.find((f) => !f.id)?.name ?? 'No Folder';
     const organizations = bitwarden.organizations.reduce<Record<string, Organization>>(
       (partial, o) => ({ ...partial, [o.id]: o }),
       {},
@@ -287,7 +287,7 @@ export class KeePassWriter {
    * @param filename Filename of database.
    */
   async writeDatabase(path: string, filename: string) {
-    console.log('💻 Saving KeePass database disk');
+    console.log('💻 Saving KeePass database to disk');
     mkdirSync(path, { recursive: true });
     filename = filename.endsWith('.kdbx') ? filename : `${filename}.kdbx`;
     const fullPath = join(path, filename);

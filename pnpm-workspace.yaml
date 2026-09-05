@@ -1,3 +1,6 @@
-onlyBuiltDependencies:
-  - argon2
-  - esbuild
+allowBuilds:
+  argon2: true
+  core-js: true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - eslint@10.10.0

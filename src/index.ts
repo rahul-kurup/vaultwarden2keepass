@@ -6,7 +6,7 @@ executeBackup().then(
     process.exit(0);
   },
   (reason) => {
-    console.log('🛑 Backup did not complete successfully', reason);
+    console.error('🛑 Backup did not complete successfully', reason);
     process.exit(1);
   },
 );
